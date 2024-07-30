@@ -30,7 +30,7 @@ Before arriving to the final output, we derive some intermediate values which ca
 
 The total `pressure`,
 
-$$101325 ( 1 - (0.0065 \frac{elevation}{288.15}))^{5.25545}$$
+$$101325 \left( 1 - (0.0065 \frac{elevation}{288.15})\right)^{5.25545}$$
 
 the vapor pressure of water, `vapor_pressure`,
 
