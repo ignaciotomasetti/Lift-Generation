@@ -38,7 +38,7 @@ $$humidity \ \ 610.078 \ \exp\left(\frac{17.27 \ temperature}{temperature + 237.
 
 the density of air, or atmospheric density, $\rho$
 
-$$\frac{pressure - vapor\_pressure}{287.058 \  (temperature + 273.1)} + \frac{vapor\_pressure}{461.495 \ (temperature + 273.1)}$$
+$$\frac{pressure - vapor\_ pressure}{287.058 \  (temperature + 273.1)} + \frac{vapor\_ pressure}{461.495 \ (temperature + 273.1)}$$
 
 and the `velocity`,
 
@@ -58,8 +58,7 @@ measured in N.
 This version of the lift generation model considers the Temperature as the distribution constructed directly from empirical values (obtained from MetOffice data, 2020/2024, Sutton-Bonnington), and the rest of the inputs as uniform distributions with the mentioned tolerance.
 
 Previously, a simpler case was studied, the initial version, which allows the user to choose the inputs one by one and returns the exact value of the main output, as well as the intermediate results. This can  be found here: \
-https://github.com/ignaciotomasetti/Lift-Generation-Preliminary/tree/main
-
+https://github.com/ignaciotomasetti/Lift-Generation-Preliminary
 
 A third version could be obtained with no effort, more complete, in which the inputs are considered as distributions, and intermediate results are plotted to get track of how uncertanity propagates step by step.
 
