@@ -17,6 +17,7 @@ The parameter `gamma` is the APB energy with units J/m^2, `phi` is the precipita
 
 ## Outputs
 The output is the cutting stress, `σc` where
+
 $$L=\frac{1}{2}\rho v^2 C_LA$$
 
 ```
