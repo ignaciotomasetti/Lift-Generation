@@ -38,7 +38,7 @@ $$humidity \ \ 610.078 \ \exp\left(\frac{17.27 \ temperature}{temperature + 237.
 
 the density of air, or atmospheric density, $\rho$
 
-$$\frac{pressure - vapor\_pressure}{287.058 \  (temperature + 273.1)} + \frac{vapor\_pressure}{461.495 \ (temperature + 273.1)}$$
+$$\frac{pressure - vapor\\_pressure}{287.058 \  (temperature + 273.1)} + \frac{vapor\\_pressure}{461.495 \ (temperature + 273.1)}$$
 
 and the `velocity`,
 
