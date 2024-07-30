@@ -14,14 +14,14 @@ which can be found in John Anderson's book [^0]. Reasonable measurement uncertai
 
 The inputs and their ranges are:
 
--	`elevation`:	30 to 60 m
--	`temperature`:		0 to 20 C
--	`humidity`:		0.0 to 1.0
--	`pitot`:		102678 to 103045 N/m^2
--	`area`:		1 to 2 m^2 (i.e., constant)
--	`C_L`:		0.63 (i.e., constant)
+-	`elevation`:	 30 to 60 m
+-	`temperature`:	 0 to 20 C
+-	`humidity`:		 0.0 to 1.0
+-	`pitot`:	     102678 to 103045 N/m^2
+-	`A`:		     1 to 2 m^2 
+-	`C_L`:		     0.63 (i.e., constant)
 
-The parameter `elevation` measures the height above mean sea level (AMSL) in meters, the `temperature` of the air measured in Celsius, `humidity` is the relative humidity (up to 1.0 which represents a 100%) , the parameter `pitot` refers to the Pitot's pressure, or stagnation pressure, and it is the pressure measured by the Pitot's tube in Pascals(N/m^2), the `area` of the airfoil which is assumed beforehand to have a chord of 1.3 meters, and `C_L` is the lift coefficient, a dimensionless quantity which depends on many factors in a complex manner (on the shape of the airfoil, assumed NACA 2421, on the angle of attack of the airfoil, assumed 4 degrees), but we will assume it as a constant for the simplification of the model.
+The parameter `elevation` measures the height above mean sea level (AMSL) in meters, the `temperature` of the air measured in Celsius, `humidity` is the relative humidity (up to 1.0 which represents a 100%) , the parameter `pitot` refers to the Pitot's pressure, or stagnation pressure, and it is the pressure measured by the Pitot's tube in Pascals (N/m^2), `A` the area of the airfoil which is assumed beforehand to have a chord of 1.3 meters, and `C_L` is the lift coefficient, a dimensionless quantity which depends on many factors in a complex manner (on the shape of the airfoil, assumed NACA 2421, on the angle of attack of the airfoil, assumed 4 degrees), but we will assume it as a constant for the simplification of the model.
 
 
 ## Intermediate results
@@ -30,15 +30,15 @@ Before arriving to the final output, we derive some intermediate values which ca
 
 The total `pressure`,
 
-$$101325 \left( 1 - (0.0065 \frac{elevation}{288.15})\right)^{5.25545}$$
+$$101325 \left( 1 - \left(0.0065 \frac{elevation}{288.15}\right)\right)^{5.25545}$$
 
 the vapor pressure of water, `vapor_pressure`,
 
-$$humidity \ \ 610.078 \ \exp(\frac{17.27 * temperature}{temperature + 237.3})$$
+$$humidity \ \ 610.078 \ \exp\left(\frac{17.27 \ temperature}{temperature + 237.3}\right)$$
 
 the density of air, or atmospheric density, $\rho$
 
-$$\frac{pressure - vapor\_pressure}{287.058 \  (temperature + 273.1} + \frac{vapor\_pressure}{461.495 \ (temperature + 273.1)}$$
+$$\frac{pressure - vapor\_pressure}{287.058 \  (temperature + 273.1)} + \frac{vapor\_pressure}{461.495 \ (temperature + 273.1)}$$
 
 and the `velocity`,
 
@@ -50,12 +50,16 @@ The output is the lift force, `L` where
 
 $$L=\frac{1}{2}\rho v^2 C_LA$$
 
+measured in N.
+
 ## Alternative versions
 
 
 This version of the lift generation model considers the Temperature as the distribution constructed directly from empirical values (obtained from MetOffice data, 2020/2024, Sutton-Bonnington), and the rest of the inputs as uniform distributions with the mentioned tolerance.
 
-Previously, a simpler case was studied, the origianl version, which allows the user to choose the inputs one by one and returns the exact value of the main output, as well as the intermediate results. 
+Previously, a simpler case was studied, the initial version, which allows the user to choose the inputs one by one and returns the exact value of the main output, as well as the intermediate results. This can  be found here: \
+https://github.com/ignaciotomasetti/Lift-Generation-Preliminary/tree/main
+
 
 A third version could be obtained with no effort, more complete, in which the inputs are considered as distributions, and intermediate results are plotted to get track of how uncertanity propagates step by step.
 
